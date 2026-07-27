@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Third-party licenses for apply-patch</title>
+  <style>
+    body { font: 14px/1.5 sans-serif; margin: 2rem auto; max-width: 70rem; padding: 0 1rem; }
+    pre { overflow-wrap: anywhere; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Third-party licenses for apply-patch</h1>
+  {{#each licenses}}
+  <section>
+    <h2>{{name}} ({{id}})</h2>
+    <p>Used by:
+      {{#each used_by}}
+      <code>{{crate.name}} {{crate.version}}</code>{{#unless @last}}, {{/unless}}
+      {{/each}}
+    </p>
+    <pre>{{text}}</pre>
+  </section>
+  {{/each}}
+</body>
+</html>
