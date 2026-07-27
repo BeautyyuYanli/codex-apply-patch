@@ -135,19 +135,22 @@ if (( release_count > 0 )); then
     rm -f "$notes_file"
   done < <(jq -r '.[] | @base64' "$new_releases_file")
 else
-  previous_commit=""
-  if [[ -f sync/state/commit ]]; then
-    previous_commit="$(tr -d '\n' < sync/state/commit)"
+  previous_tree=""
+  if [[ -f sync/state/tree ]]; then
+    previous_tree="$(tr -d '\n' < sync/state/tree)"
   fi
   ./sync/sync.py --ref main --repository "$mirror_repository_url"
   current_commit="$(tr -d '\n' < sync/state/commit)"
+  current_tree="$(tr -d '\n' < sync/state/tree)"
 
-  if [[ "$current_commit" != "$previous_commit" ]]; then
+  if [[ "$current_tree" != "$previous_tree" ]]; then
     ./sync/package.sh \
       "$(cut -c1-12 sync/state/commit)" \
       "${main_targets[@]}"
     built=true
     mode=main
+  else
+    echo "apply-patch tree unchanged; skipping the main-branch build"
   fi
   commit_generated_files "Sync apply-patch from OpenAI Codex ${current_commit:0:12}"
 fi
