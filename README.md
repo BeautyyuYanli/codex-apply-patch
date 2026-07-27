@@ -2,30 +2,25 @@
 
 A standalone distribution of OpenAI Codex's
 [`apply_patch`](https://github.com/openai/codex/tree/main/codex-rs/apply-patch)
-tool, with prebuilt binaries and an optional agent skill.
+utility. This repository mirrors the upstream Rust crate and publishes
+ready-to-install bundles containing both a binary and an agent skill.
 
-Supported platforms:
+For the patch format and tool instructions, see [`SKILL.md`](SKILL.md).
 
-- Linux x86-64
-- Linux ARM64
-- macOS Apple Silicon
-- Windows x64
+## Download
 
-For the patch format and usage rules, see [`SKILL.md`](SKILL.md).
-
-## Install
-
-Download the latest bundle from
+Prebuilt bundles are available from
 [GitHub Releases](https://github.com/BeautyyuYanli/codex-apply-patch/releases):
 
-| Platform | Asset suffix |
+| Platform | Release asset suffix |
 | --- | --- |
 | Linux x86-64 | `x86_64-unknown-linux-gnu.tar.gz` |
 | Linux ARM64 | `aarch64-unknown-linux-gnu.tar.gz` |
 | macOS Apple Silicon | `aarch64-apple-darwin.tar.gz` |
 | Windows x64 | `x86_64-pc-windows-msvc.zip` |
 
-Each archive has a matching `.sha256` checksum and extracts to:
+Every archive has a matching `.sha256` checksum and contains one top-level
+directory:
 
 ```text
 apply-patch/
@@ -37,9 +32,11 @@ apply-patch/
 └── THIRD_PARTY_LICENSES.html
 ```
 
-To download the newest published release, including prereleases, install
-`curl` and `jq`, then run this from a POSIX shell. The asset suffix is detected
-from the operating system and CPU architecture:
+### Download the latest release from a shell
+
+The following command downloads the newest published release, including
+prereleases. It requires `curl` and `jq`, and automatically selects the asset
+for the current platform:
 
 ```sh
 set -eu
@@ -78,6 +75,10 @@ curl -fLO "$asset_url"
 curl -fLO "${asset_url}.sha256"
 ```
 
+## Install
+
+Install the command-line binary, the agent skill, or both.
+
 ### Install the binary on `PATH`
 
 #### Linux
@@ -89,8 +90,6 @@ mkdir -p ~/.local/bin
 install -m 0755 apply-patch/apply_patch ~/.local/bin/apply_patch
 ```
 
-Ensure `~/.local/bin` is on `PATH`.
-
 #### macOS
 
 ```sh
@@ -100,18 +99,18 @@ mkdir -p ~/.local/bin
 install -m 0755 apply-patch/apply_patch ~/.local/bin/apply_patch
 ```
 
-Ensure `~/.local/bin` is on `PATH`.
+On Linux and macOS, ensure `~/.local/bin` is on `PATH`.
 
 #### Windows
 
-Extract the zip archive, then either copy
-`apply-patch\apply_patch.exe` to a directory on `PATH` or add the extracted
-`apply-patch` directory to `PATH`.
+Extract the zip archive, then copy `apply-patch\apply_patch.exe` to a directory
+you already manage on `PATH`, or add the extracted `apply-patch` directory to
+the user `PATH`.
 
 ### Install as an agent skill
 
-This is independent of installing the binary on `PATH`. Extract the complete
-bundle directly into the shared agents skill directory.
+Extract the complete bundle directly into the shared agents skill directory.
+This installation does not require adding the binary to `PATH`.
 
 On Linux or macOS:
 
@@ -127,11 +126,11 @@ New-Item -ItemType Directory -Force "$HOME/.agents/skills" | Out-Null
 Expand-Archive -Force -Path apply-patch-*.zip -DestinationPath "$HOME/.agents/skills"
 ```
 
-The installed skill is at `~/.agents/skills/apply-patch/SKILL.md`; the bundled
-binary stays inside that skill directory.
+The installed skill entry point is
+`~/.agents/skills/apply-patch/SKILL.md`.
 
-For command-line use on Linux or macOS, we recommend linking that binary into
-a directory on `PATH` instead of copying it:
+For command-line access on Linux or macOS, we recommend linking the bundled
+binary into a directory on `PATH` instead of copying it:
 
 ```sh
 mkdir -p ~/.local/bin
@@ -141,10 +140,12 @@ ln -sfn "$HOME/.agents/skills/apply-patch/apply_patch" \
 
 Ensure `~/.local/bin` is on `PATH`.
 
-## Sync locally
+## Work locally
 
-Install Git, Rust, Cargo, and
-[`uv`](https://docs.astral.sh/uv/getting-started/installation/), then run:
+Local synchronization and builds require Git, Rust, Cargo, and
+[`uv`](https://docs.astral.sh/uv/getting-started/installation/).
+
+### Synchronize from upstream
 
 ```sh
 git clone https://github.com/BeautyyuYanli/codex-apply-patch.git
@@ -155,8 +156,10 @@ uv run --script sync/sync.py \
 ```
 
 Replace `main` with an upstream tag or commit to synchronize that revision.
+The script regenerates the source tree, Cargo metadata, lockfile, licenses, and
+provenance state.
 
-## Build locally
+### Build and test
 
 ```sh
 git clone https://github.com/BeautyyuYanli/codex-apply-patch.git
@@ -165,25 +168,30 @@ cargo build --locked --release --bin apply_patch
 cargo test --locked
 ```
 
-The binary is written to `target/release/apply_patch` or
+The resulting binary is written to `target/release/apply_patch` or
 `target/release/apply_patch.exe`.
 
-## Updates
+## Automation
 
 The [sync workflow](https://github.com/BeautyyuYanli/codex-apply-patch/actions)
 runs daily and can also be started manually.
 
-- New upstream releases are mirrored with Linux x86-64, Linux ARM64, macOS
-  ARM64, and Windows x64 bundles.
-- When there is no new release, upstream `main` is synchronized and Linux
-  artifacts are built only when the `codex-rs/apply-patch` tree changes.
+- When a new upstream release is available, the workflow synchronizes that
+  release instead of upstream `main`, builds all four platform bundles, and
+  publishes a matching release whose notes link back to the upstream release.
+- When there is no new release, the workflow synchronizes upstream `main`.
+  Linux bundles are built only when the `codex-rs/apply-patch` source tree has
+  changed.
 
-The generated source, package metadata, lockfile, and provenance state should
-be updated through [`sync/sync.py`](sync/sync.py), not edited manually.
+Generated source, package metadata, lockfiles, licenses, and provenance state
+must be updated through [`sync/sync.py`](sync/sync.py), not edited manually.
 
-## License
+## License and provenance
 
-The synchronized source is from OpenAI Codex and is licensed under
-Apache-2.0. See [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), and
-[`sync/state`](sync/state). This repository is an unofficial standalone mirror
-and is not affiliated with or endorsed by OpenAI.
+The synchronized OpenAI source is licensed under Apache-2.0. The repository
+tracks the upstream [`LICENSE`](LICENSE), [`NOTICE`](NOTICE), commit, ref, and
+tree hash in [`sync/state`](sync/state). Release bundles also include source
+provenance and generated third-party license notices.
+
+This is an unofficial standalone mirror and is not affiliated with or endorsed
+by OpenAI.
