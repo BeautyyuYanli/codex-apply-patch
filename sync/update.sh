@@ -88,6 +88,7 @@ commit_generated_files() {
     sync/state/commit sync/state/ref sync/state/tree
   if ! git diff --cached --quiet; then
     git commit -m "$message"
+    git pull --rebase origin main
     git push origin HEAD:main
   fi
 }
