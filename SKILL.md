@@ -1,5 +1,5 @@
 ---
-name: codex-apply-patch
+name: apply-patch
 description: Use the apply_patch tool to create, update, move, rename, or delete text files through structured patches.
 ---
 
