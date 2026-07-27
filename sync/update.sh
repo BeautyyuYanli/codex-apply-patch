@@ -17,10 +17,12 @@ if [[ ! "$baseline" =~ ^[0-9]+$ ]]; then
 fi
 
 gh_api_retry() {
+  local output_file="$1"
+  shift
   local attempt
   local delay
   for attempt in 1 2 3 4 5; do
-    if gh api "$@"; then
+    if gh api "$@" > "$output_file"; then
       return 0
     fi
     if (( attempt == 5 )); then
@@ -32,39 +34,40 @@ gh_api_retry() {
   done
 }
 
-releases="[]"
+api_temp="$(mktemp -d)"
+trap 'rm -rf "$api_temp"' EXIT
+releases_file="$api_temp/releases.json"
+page_file="$api_temp/page.json"
+merged_file="$api_temp/merged.json"
+published_file="$api_temp/published.json"
+new_releases_file="$api_temp/new-releases.json"
+printf '[]\n' > "$releases_file"
+
 page=1
 while :; do
-  page_releases="$(
-    gh_api_retry -X GET \
-      "repos/${upstream_repository}/releases?per_page=${release_page_size}&page=${page}"
-  )"
-  jq -e 'type == "array"' >/dev/null <<<"$page_releases"
-  releases="$(
-    jq -cn \
-      --argjson previous "$releases" \
-      --argjson current "$page_releases" \
-      '$previous + $current'
-  )"
+  gh_api_retry "$page_file" -X GET \
+    "repos/${upstream_repository}/releases?per_page=${release_page_size}&page=${page}"
+  jq -e 'type == "array"' "$page_file" >/dev/null
+  jq -s '.[0] + .[1]' "$releases_file" "$page_file" > "$merged_file"
+  mv "$merged_file" "$releases_file"
   if jq -e --argjson baseline "$baseline" \
-    'any(.id == $baseline)' >/dev/null <<<"$page_releases"; then
+    'any(.id == $baseline)' "$page_file" >/dev/null; then
     break
   fi
-  if (( $(jq 'length' <<<"$page_releases") < release_page_size )); then
+  if (( $(jq 'length' "$page_file") < release_page_size )); then
     echo "release baseline $baseline was not found upstream; refusing to skip history" >&2
     exit 1
   fi
   ((page += 1))
 done
-releases="$(jq 'map(select(.draft == false))' <<<"$releases")"
+jq 'map(select(.draft == false))' "$releases_file" > "$published_file"
 baseline_index="$(
   jq --argjson baseline "$baseline" \
-    'map(.id) | index($baseline)' <<<"$releases"
+    'map(.id) | index($baseline)' "$published_file"
 )"
-new_releases="$(
-  jq --argjson end "$baseline_index" '.[0:$end] | reverse' <<<"$releases"
-)"
-release_count="$(jq 'length' <<<"$new_releases")"
+jq --argjson end "$baseline_index" \
+  '.[0:$end] | reverse' "$published_file" > "$new_releases_file"
+release_count="$(jq 'length' "$new_releases_file")"
 built=false
 mode=noop
 
@@ -134,7 +137,7 @@ if (( release_count > 0 )); then
     rm -f "$notes_file"
 
     record_release "$release_id" "$tag"
-  done < <(jq -r '.[] | @base64' <<<"$new_releases")
+  done < <(jq -r '.[] | @base64' "$new_releases_file")
 else
   previous_commit=""
   if [[ -f sync/state/commit ]]; then
