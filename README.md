@@ -141,6 +141,19 @@ ln -sfn "$HOME/.agents/skills/apply-patch/apply_patch" \
 
 Ensure `~/.local/bin` is on `PATH`.
 
+On Windows PowerShell:
+
+```powershell
+$binDir = "$HOME\.local\bin"
+New-Item -ItemType Directory -Force -Path $binDir | Out-Null
+New-Item -ItemType SymbolicLink `
+  -Path "$binDir\apply_patch.exe" `
+  -Target "$HOME\.agents\skills\apply-patch\apply_patch.exe"
+```
+
+Ensure `$HOME\.local\bin` is on the user `PATH`. Creating symbolic links on
+Windows requires an Administrator terminal unless Developer Mode is enabled.
+
 ## Sync locally
 
 Install Git, Rust, Cargo, and
