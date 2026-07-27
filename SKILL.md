@@ -1,6 +1,6 @@
 ---
 name: codex-apply-patch
-description: Use the apply_patch tool to create, update, move, rename, or delete text files through structured patches. Trigger when Codex needs to make intentional hand-written text edits with apply_patch, construct valid patch syntax, handle patch failures, or verify patch-based changes.
+description: Use the apply_patch tool to create, update, move, rename, or delete text files through structured patches.
 ---
 
 # `apply_patch` Tool Instructions
