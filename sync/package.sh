@@ -32,7 +32,7 @@ trap 'rm -rf "$stage_root"' EXIT
 common="$stage_root/common"
 mkdir "$common"
 
-install -m 0644 LICENSE NOTICE "$common/"
+install -m 0644 LICENSE NOTICE SKILL.md "$common/"
 {
   printf 'Upstream repository: https://github.com/openai/codex\n'
   printf 'Upstream path: codex-rs/apply-patch\n'
@@ -76,10 +76,11 @@ for target in "${targets[@]}"; do
   esac
 
   stage="$stage_root/$target"
-  mkdir "$stage"
-  install -m 0755 "target/$target/release/$binary_name" "$stage/$binary_name"
-  install -m 0644 "$common/LICENSE" "$common/NOTICE" \
-    "$common/SOURCE" "$common/THIRD_PARTY_LICENSES.html" "$stage/"
+  bundle="$stage/apply-patch"
+  mkdir -p "$bundle"
+  install -m 0755 "target/$target/release/$binary_name" "$bundle/$binary_name"
+  install -m 0644 "$common/LICENSE" "$common/NOTICE" "$common/SKILL.md" \
+    "$common/SOURCE" "$common/THIRD_PARTY_LICENSES.html" "$bundle/"
 
   archive_stem="apply-patch-${safe_label}-${target}"
   if [[ "$target" == *-windows-* ]]; then
@@ -90,11 +91,11 @@ for target in "${targets[@]}"; do
     archive="$repo_root/dist/${archive_stem}.zip"
     (
       cd "$stage"
-      zip -q "$archive" ./*
+      zip -qr "$archive" apply-patch
     )
   else
     archive="$repo_root/dist/${archive_stem}.tar.gz"
-    tar -C "$stage" -czf "$archive" .
+    tar -C "$stage" -czf "$archive" apply-patch
   fi
 
   archive_name="$(basename "$archive")"
