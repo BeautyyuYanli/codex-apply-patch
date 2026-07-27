@@ -35,8 +35,8 @@ apply-patch/
 ### Download the latest release from a shell
 
 The following command downloads the newest published release, including
-prereleases. It requires `curl` and `jq`, and automatically selects the asset
-for the current platform:
+prereleases. It requires `curl` and `jq`, and automatically selects the
+matching Linux or macOS asset:
 
 ```sh
 set -eu
@@ -50,9 +50,6 @@ case "$(uname -s):$(uname -m)" in
     ;;
   Darwin:arm64|Darwin:aarch64)
     asset_suffix="aarch64-apple-darwin.tar.gz"
-    ;;
-  MINGW*:x86_64|MSYS*:x86_64|CYGWIN*:x86_64)
-    asset_suffix="x86_64-pc-windows-msvc.zip"
     ;;
   *)
     echo "Unsupported platform: $(uname -s) $(uname -m)" >&2
@@ -100,12 +97,6 @@ install -m 0755 apply-patch/apply_patch ~/.local/bin/apply_patch
 ```
 
 On Linux and macOS, ensure `~/.local/bin` is on `PATH`.
-
-#### Windows
-
-Extract the zip archive, then copy `apply-patch\apply_patch.exe` to a directory
-you already manage on `PATH`, or add the extracted `apply-patch` directory to
-the user `PATH`.
 
 ### Install as an agent skill
 
