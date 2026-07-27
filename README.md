@@ -128,8 +128,18 @@ Expand-Archive -Force -Path apply-patch-*.zip -DestinationPath "$HOME/.agents/sk
 ```
 
 The installed skill is at `~/.agents/skills/apply-patch/SKILL.md`; the bundled
-binary stays inside that skill directory and does not need to be added to
-`PATH`.
+binary stays inside that skill directory.
+
+For command-line use on Linux or macOS, we recommend linking that binary into
+a directory on `PATH` instead of copying it:
+
+```sh
+mkdir -p ~/.local/bin
+ln -sfn "$HOME/.agents/skills/apply-patch/apply_patch" \
+  "$HOME/.local/bin/apply_patch"
+```
+
+Ensure `~/.local/bin` is on `PATH`.
 
 ## Sync locally
 
