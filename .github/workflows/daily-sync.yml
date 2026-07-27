@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Check out the mirror
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -26,6 +26,7 @@ jobs:
         uses: astral-sh/setup-uv@v9.0.0
         with:
           version: "0.11.13"
+          enable-cache: false
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -51,7 +52,7 @@ jobs:
 
       - name: Upload the main-branch binary
         if: steps.update.outputs.built == 'true' && steps.update.outputs.mode == 'main'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: apply-patch-${{ github.run_id }}
           path: dist/*

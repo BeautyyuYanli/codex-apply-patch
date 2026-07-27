@@ -15,21 +15,36 @@ if [[ ! "$baseline" =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 
-releases="$(
-  gh api --paginate --slurp -X GET \
-    "repos/${upstream_repository}/releases" \
-    -f per_page=100 |
-    jq 'add | map(select(.draft == false))'
-)"
+releases="[]"
+page=1
+while :; do
+  page_releases="$(
+    gh api -X GET "repos/${upstream_repository}/releases" \
+      -f per_page=100 \
+      -f page="$page"
+  )"
+  jq -e 'type == "array"' >/dev/null <<<"$page_releases"
+  releases="$(
+    jq -cn \
+      --argjson previous "$releases" \
+      --argjson current "$page_releases" \
+      '$previous + $current'
+  )"
+  if jq -e --argjson baseline "$baseline" \
+    'any(.id == $baseline)' >/dev/null <<<"$page_releases"; then
+    break
+  fi
+  if (( $(jq 'length' <<<"$page_releases") < 100 )); then
+    echo "release baseline $baseline was not found upstream; refusing to skip history" >&2
+    exit 1
+  fi
+  ((page += 1))
+done
+releases="$(jq 'map(select(.draft == false))' <<<"$releases")"
 baseline_index="$(
   jq --argjson baseline "$baseline" \
     'map(.id) | index($baseline)' <<<"$releases"
 )"
-if [[ "$baseline_index" == "null" ]]; then
-  echo "release baseline $baseline was not found upstream; refusing to skip history" >&2
-  exit 1
-fi
-
 new_releases="$(
   jq --argjson end "$baseline_index" '.[0:$end] | reverse' <<<"$releases"
 )"
