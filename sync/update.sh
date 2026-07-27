@@ -9,19 +9,35 @@ cd "$repo_root"
 
 upstream_repository="openai/codex"
 baseline_file="sync/state/release-id"
+release_page_size=20
 baseline="$(tr -d '\n' < "$baseline_file")"
 if [[ ! "$baseline" =~ ^[0-9]+$ ]]; then
   echo "$baseline_file must contain a GitHub release ID" >&2
   exit 1
 fi
 
+gh_api_retry() {
+  local attempt
+  local delay
+  for attempt in 1 2 3 4 5; do
+    if gh api "$@"; then
+      return 0
+    fi
+    if (( attempt == 5 )); then
+      return 1
+    fi
+    delay=$((2 ** attempt))
+    echo "GitHub API request failed; retrying in ${delay}s" >&2
+    sleep "$delay"
+  done
+}
+
 releases="[]"
 page=1
 while :; do
   page_releases="$(
-    gh api -X GET "repos/${upstream_repository}/releases" \
-      -f per_page=100 \
-      -f page="$page"
+    gh_api_retry -X GET \
+      "repos/${upstream_repository}/releases?per_page=${release_page_size}&page=${page}"
   )"
   jq -e 'type == "array"' >/dev/null <<<"$page_releases"
   releases="$(
@@ -34,7 +50,7 @@ while :; do
     'any(.id == $baseline)' >/dev/null <<<"$page_releases"; then
     break
   fi
-  if (( $(jq 'length' <<<"$page_releases") < 100 )); then
+  if (( $(jq 'length' <<<"$page_releases") < release_page_size )); then
     echo "release baseline $baseline was not found upstream; refusing to skip history" >&2
     exit 1
   fi
