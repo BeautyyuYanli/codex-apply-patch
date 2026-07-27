@@ -58,7 +58,8 @@ for target in "${targets[@]}"; do
         echo "cross is required to build $target" >&2
         exit 1
       fi
-      cross build --locked --release --target "$target" --bin apply_patch
+      CROSS_CONFIG=sync/cross/Cross.toml \
+        cross build --locked --release --target "$target" --bin apply_patch
       ;;
     x86_64-pc-windows-msvc)
       if ! cargo xwin --version >/dev/null 2>&1; then
