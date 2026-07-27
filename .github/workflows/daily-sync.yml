@@ -55,6 +55,12 @@ jobs:
         with:
           tool: cargo-xwin@0.23.0
 
+      - name: Install LLVM tools for Windows cross-compilation
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends llvm-18
+          echo "/usr/lib/llvm-18/bin" >> "$GITHUB_PATH"
+
       - name: Configure the sync identity
         run: |
           git config user.name "github-actions[bot]"
