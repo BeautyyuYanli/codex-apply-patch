@@ -2,7 +2,7 @@
 
 A standalone distribution of OpenAI Codex's
 [`apply_patch`](https://github.com/openai/codex/tree/main/codex-rs/apply-patch)
-tool, with prebuilt binaries and an optional Codex skill.
+tool, with prebuilt binaries and an optional agent skill.
 
 Supported platforms:
 
@@ -37,7 +37,31 @@ apply-patch/
 └── THIRD_PARTY_LICENSES.html
 ```
 
-### Linux
+To download the newest published release, including prereleases, install
+`curl` and `jq`, choose an asset suffix from the table, and run:
+
+```sh
+set -eu
+
+asset_suffix="x86_64-unknown-linux-gnu.tar.gz"
+asset_url="$(
+  curl -fsSL \
+    "https://api.github.com/repos/BeautyyuYanli/codex-apply-patch/releases?per_page=10" |
+    jq -er --arg suffix "$asset_suffix" '
+      first(
+        .[] | select(.draft == false) | .assets[]
+        | select(.name | endswith($suffix))
+        | .browser_download_url
+      )
+    '
+)"
+curl -fLO "$asset_url"
+curl -fLO "${asset_url}.sha256"
+```
+
+### Install the binary on `PATH`
+
+#### Linux
 
 ```sh
 sha256sum -c apply-patch-*.tar.gz.sha256
@@ -48,7 +72,7 @@ install -m 0755 apply-patch/apply_patch ~/.local/bin/apply_patch
 
 Ensure `~/.local/bin` is on `PATH`.
 
-### macOS
+#### macOS
 
 ```sh
 shasum -a 256 -c apply-patch-*.tar.gz.sha256
@@ -59,27 +83,43 @@ install -m 0755 apply-patch/apply_patch ~/.local/bin/apply_patch
 
 Ensure `~/.local/bin` is on `PATH`.
 
-### Windows
+#### Windows
 
 Extract the zip archive, then either copy
 `apply-patch\apply_patch.exe` to a directory on `PATH` or add the extracted
 `apply-patch` directory to `PATH`.
 
-### Optional: install the Codex skill
+### Install the skill for agents
 
 After extracting any bundle:
 
 ```sh
-mkdir -p ~/.codex/skills/apply-patch
-cp apply-patch/SKILL.md ~/.codex/skills/apply-patch/SKILL.md
+mkdir -p ~/.agents/skills/apply-patch
+cp apply-patch/SKILL.md ~/.agents/skills/apply-patch/SKILL.md
 ```
 
-If `CODEX_HOME` is configured, use `$CODEX_HOME/skills/apply-patch` instead.
+## Sync locally
 
-## Build from source
+Install Git, Rust, Cargo, and
+[`uv`](https://docs.astral.sh/uv/getting-started/installation/), then run:
 
 ```sh
+git clone https://github.com/BeautyyuYanli/codex-apply-patch.git
+cd codex-apply-patch
+uv run --script sync/sync.py \
+  --ref main \
+  --repository https://github.com/BeautyyuYanli/codex-apply-patch
+```
+
+Replace `main` with an upstream tag or commit to synchronize that revision.
+
+## Build locally
+
+```sh
+git clone https://github.com/BeautyyuYanli/codex-apply-patch.git
+cd codex-apply-patch
 cargo build --locked --release --bin apply_patch
+cargo test --locked
 ```
 
 The binary is written to `target/release/apply_patch` or
