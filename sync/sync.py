@@ -359,7 +359,7 @@ def synchronize(
             if not workspace_lock.is_file():
                 raise RuntimeError("upstream checkout does not contain codex-rs/Cargo.lock")
             shutil.copy2(workspace_lock, stage / "Cargo.lock")
-            run("cargo", "generate-lockfile", cwd=stage)
+            run("cargo", "metadata", "--format-version", "1", cwd=stage, capture=True)
 
         for name in GENERATED_CRATE_ENTRIES:
             staged_entry = stage / name
