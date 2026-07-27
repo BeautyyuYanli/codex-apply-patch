@@ -122,7 +122,7 @@ if (( release_count > 0 )); then
     fi
 
     notes_file="$(mktemp)"
-    jq -r '.body // ""' <<<"$release_json" > "$notes_file"
+    jq -j '.body // ""' <<<"$release_json" > "$notes_file"
     mapfile -t assets < <(find dist -maxdepth 1 -type f -print | sort)
     release_args=(
       release create "$tag"
