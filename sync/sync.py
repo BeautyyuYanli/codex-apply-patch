@@ -18,7 +18,6 @@ from typing import Any
 
 
 DEFAULT_UPSTREAM = "https://github.com/openai/codex.git"
-DEFAULT_REPOSITORY = "https://github.com/BeautyyuYanli/codex-apply-patch"
 UPSTREAM_CRATE = Path("codex-rs/apply-patch")
 GENERATED_FILES = {
     "Cargo.toml": Path("Cargo.toml"),
@@ -173,7 +172,7 @@ def render_manifest(
     ref: str,
     tree: str,
     upstream_url: str,
-    repository: str,
+    repository: str | None,
     crate_dir: Path,
 ) -> str:
     workspace = workspace_manifest["workspace"]
@@ -189,10 +188,11 @@ def render_manifest(
     package.update(
         {
             "description": "Standalone mirror of OpenAI Codex's apply_patch binary",
-            "repository": repository,
             "publish": False,
         }
     )
+    if repository is not None:
+        package["repository"] = repository
     package.pop("readme", None)
     if "build" in package:
         package["build"] = adjust_source_path(package["build"])
@@ -297,7 +297,7 @@ def synchronize(
     root: Path,
     ref: str,
     upstream_url: str,
-    repository: str,
+    repository: str | None,
     source: str | None,
     skip_lock: bool,
 ) -> None:
@@ -405,8 +405,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--upstream", default=DEFAULT_UPSTREAM, help="upstream Git URL")
     parser.add_argument(
         "--repository",
-        default=DEFAULT_REPOSITORY,
-        help="repository URL written to Cargo package metadata",
+        help="override the repository URL written to Cargo package metadata",
     )
     parser.add_argument(
         "--source",

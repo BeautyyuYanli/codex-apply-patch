@@ -8,6 +8,7 @@ cd "$repo_root"
 : "${GH_TOKEN:?GH_TOKEN is required}"
 
 upstream_repository="openai/codex"
+mirror_repository_url="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY}"
 baseline_file="sync/state/release-id"
 release_page_size=20
 baseline="$(tr -d '\n' < "$baseline_file")"
@@ -103,7 +104,7 @@ if (( release_count > 0 )); then
     title="$(jq -r '.name // .tag_name' <<<"$release_json")"
     prerelease="$(jq -r '.prerelease' <<<"$release_json")"
 
-    ./sync/sync.py --ref "$tag"
+    ./sync/sync.py --ref "$tag" --repository "$mirror_repository_url"
 
     if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
       echo "release $tag already exists; advancing the release baseline"
@@ -143,7 +144,7 @@ else
   if [[ -f sync/state/commit ]]; then
     previous_commit="$(tr -d '\n' < sync/state/commit)"
   fi
-  ./sync/sync.py --ref main
+  ./sync/sync.py --ref main --repository "$mirror_repository_url"
   current_commit="$(tr -d '\n' < sync/state/commit)"
 
   if [[ "$current_commit" != "$previous_commit" ]]; then
