@@ -38,12 +38,31 @@ apply-patch/
 ```
 
 To download the newest published release, including prereleases, install
-`curl` and `jq`, choose an asset suffix from the table, and run:
+`curl` and `jq`, then run this from a POSIX shell. The asset suffix is detected
+from the operating system and CPU architecture:
 
 ```sh
 set -eu
 
-asset_suffix="x86_64-unknown-linux-gnu.tar.gz"
+case "$(uname -s):$(uname -m)" in
+  Linux:x86_64|Linux:amd64)
+    asset_suffix="x86_64-unknown-linux-gnu.tar.gz"
+    ;;
+  Linux:aarch64|Linux:arm64)
+    asset_suffix="aarch64-unknown-linux-gnu.tar.gz"
+    ;;
+  Darwin:arm64|Darwin:aarch64)
+    asset_suffix="aarch64-apple-darwin.tar.gz"
+    ;;
+  MINGW*:x86_64|MSYS*:x86_64|CYGWIN*:x86_64)
+    asset_suffix="x86_64-pc-windows-msvc.zip"
+    ;;
+  *)
+    echo "Unsupported platform: $(uname -s) $(uname -m)" >&2
+    exit 1
+    ;;
+esac
+
 asset_url="$(
   curl -fsSL \
     "https://api.github.com/repos/BeautyyuYanli/codex-apply-patch/releases?per_page=10" |
@@ -89,14 +108,28 @@ Extract the zip archive, then either copy
 `apply-patch\apply_patch.exe` to a directory on `PATH` or add the extracted
 `apply-patch` directory to `PATH`.
 
-### Install the skill for agents
+### Install as an agent skill
 
-After extracting any bundle:
+This is independent of installing the binary on `PATH`. Extract the complete
+bundle directly into the shared agents skill directory.
+
+On Linux or macOS:
 
 ```sh
-mkdir -p ~/.agents/skills/apply-patch
-cp apply-patch/SKILL.md ~/.agents/skills/apply-patch/SKILL.md
+mkdir -p ~/.agents/skills
+tar -xzf apply-patch-*.tar.gz -C ~/.agents/skills
 ```
+
+On Windows PowerShell:
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME/.agents/skills" | Out-Null
+Expand-Archive -Force -Path apply-patch-*.zip -DestinationPath "$HOME/.agents/skills"
+```
+
+The installed skill is at `~/.agents/skills/apply-patch/SKILL.md`; the bundled
+binary stays inside that skill directory and does not need to be added to
+`PATH`.
 
 ## Sync locally
 
