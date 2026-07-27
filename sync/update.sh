@@ -9,6 +9,14 @@ cd "$repo_root"
 
 upstream_repository="openai/codex"
 mirror_repository_url="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY}"
+main_targets=(
+  x86_64-unknown-linux-gnu
+  aarch64-unknown-linux-gnu
+)
+release_targets=(
+  "${main_targets[@]}"
+  x86_64-pc-windows-msvc
+)
 baseline_file="sync/state/release-id"
 release_page_size=20
 baseline="$(tr -d '\n' < "$baseline_file")"
@@ -69,6 +77,7 @@ baseline_index="$(
 jq --argjson end "$baseline_index" \
   '.[0:$end] | reverse' "$published_file" > "$new_releases_file"
 release_count="$(jq 'length' "$new_releases_file")"
+release_plan="$(jq -c '[.[] | {id, tag: .tag_name}]' "$new_releases_file")"
 built=false
 mode=noop
 
@@ -83,23 +92,11 @@ commit_generated_files() {
   fi
 }
 
-record_release() {
-  local release_id="$1"
-  local tag="$2"
-  printf '%s\n' "$release_id" > "$baseline_file"
-  git add "$baseline_file"
-  if ! git diff --cached --quiet; then
-    git commit -m "Record upstream release ${tag}"
-    git push origin HEAD:main
-  fi
-}
-
 if (( release_count > 0 )); then
   mode=release
   built=true
   while IFS= read -r encoded; do
     release_json="$(base64 --decode <<<"$encoded")"
-    release_id="$(jq -r '.id' <<<"$release_json")"
     tag="$(jq -r '.tag_name' <<<"$release_json")"
     title="$(jq -r '.name // .tag_name' <<<"$release_json")"
     prerelease="$(jq -r '.prerelease' <<<"$release_json")"
@@ -107,13 +104,12 @@ if (( release_count > 0 )); then
     ./sync/sync.py --ref "$tag" --repository "$mirror_repository_url"
 
     if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-      echo "release $tag already exists; advancing the release baseline"
+      echo "release $tag already exists; retaining it for asset reconciliation"
       commit_generated_files "Sync apply-patch for OpenAI Codex ${tag}"
-      record_release "$release_id" "$tag"
       continue
     fi
 
-    ./sync/package.sh "$tag"
+    ./sync/package.sh "$tag" "${release_targets[@]}"
     commit_generated_files "Sync apply-patch for OpenAI Codex ${tag}"
 
     if ! git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
@@ -122,7 +118,8 @@ if (( release_count > 0 )); then
     fi
 
     notes_file="$(mktemp)"
-    jq -j '.body // ""' <<<"$release_json" > "$notes_file"
+    upstream_release_url="$(jq -r '.html_url' <<<"$release_json")"
+    printf 'Upstream release: %s\n' "$upstream_release_url" > "$notes_file"
     mapfile -t assets < <(find dist -maxdepth 1 -type f -print | sort)
     release_args=(
       release create "$tag"
@@ -136,8 +133,6 @@ if (( release_count > 0 )); then
     fi
     gh "${release_args[@]}" "${assets[@]}"
     rm -f "$notes_file"
-
-    record_release "$release_id" "$tag"
   done < <(jq -r '.[] | @base64' "$new_releases_file")
 else
   previous_commit=""
@@ -148,7 +143,9 @@ else
   current_commit="$(tr -d '\n' < sync/state/commit)"
 
   if [[ "$current_commit" != "$previous_commit" ]]; then
-    ./sync/package.sh "$(cut -c1-12 sync/state/commit)"
+    ./sync/package.sh \
+      "$(cut -c1-12 sync/state/commit)" \
+      "${main_targets[@]}"
     built=true
     mode=main
   fi
@@ -160,5 +157,6 @@ if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
     printf 'built=%s\n' "$built"
     printf 'mode=%s\n' "$mode"
     printf 'release_count=%s\n' "$release_count"
+    printf 'release_plan=%s\n' "$release_plan"
   } >> "$GITHUB_OUTPUT"
 fi

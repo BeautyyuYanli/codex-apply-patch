@@ -16,6 +16,10 @@ jobs:
   sync:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
+    outputs:
+      built: ${{ steps.update.outputs.built }}
+      mode: ${{ steps.update.outputs.mode }}
+      release_plan: ${{ steps.update.outputs.release_plan }}
     steps:
       - name: Check out the mirror
         uses: actions/checkout@v7.0.1
@@ -27,6 +31,61 @@ jobs:
         with:
           version: "0.11.13"
           enable-cache: false
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-unknown-linux-gnu,x86_64-pc-windows-msvc
+
+      - name: Cache Rust build data
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install cargo-about
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-about@0.9.1
+
+      - name: Install cross
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cross@0.2.5
+
+      - name: Install cargo-xwin
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-xwin@0.23.0
+
+      - name: Configure the sync identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync, build, and mirror releases
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./sync/update.sh
+
+      - name: Upload the main-branch binaries
+        if: steps.update.outputs.built == 'true' && steps.update.outputs.mode == 'main'
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: apply-patch-${{ github.run_id }}
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 14
+
+  publish-macos-arm64:
+    needs: sync
+    if: needs.sync.outputs.mode == 'release'
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - name: Check out the synchronized mirror
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -44,17 +103,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync, build, and mirror releases
-        id: update
+      - name: Build and publish macOS ARM64 release bundles
         env:
           GH_TOKEN: ${{ github.token }}
-        run: ./sync/update.sh
-
-      - name: Upload the main-branch binary
-        if: steps.update.outputs.built == 'true' && steps.update.outputs.mode == 'main'
-        uses: actions/upload-artifact@v7.0.1
-        with:
-          name: apply-patch-${{ github.run_id }}
-          path: dist/*
-          if-no-files-found: error
-          retention-days: 14
+          RELEASE_PLAN: ${{ needs.sync.outputs.release_plan }}
+        run: ./sync/publish-macos-arm64.sh
