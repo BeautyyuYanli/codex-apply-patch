@@ -18,7 +18,6 @@ jobs:
     timeout-minutes: 60
     env:
       XWIN_ARCH: x86_64
-      XWIN_CACHE_DIR: ${{ runner.temp }}/cargo-xwin
       XWIN_VERSION: "17"
     outputs:
       built: ${{ steps.update.outputs.built }}
@@ -67,18 +66,20 @@ jobs:
         id: xwin-cache
         uses: actions/cache/restore@v6
         with:
-          path: ${{ env.XWIN_CACHE_DIR }}
+          path: ${{ runner.temp }}/cargo-xwin
           key: xwin-${{ runner.os }}-${{ runner.arch }}-cargo-xwin-0.23.0-v17-x86_64-v1
 
       - name: Prepare the Windows SDK
         if: steps.xwin-cache.outputs.cache-hit != 'true'
+        env:
+          XWIN_CACHE_DIR: ${{ runner.temp }}/cargo-xwin
         run: cargo xwin cache xwin
 
       - name: Save the Windows SDK cache
         if: steps.xwin-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v6
         with:
-          path: ${{ env.XWIN_CACHE_DIR }}
+          path: ${{ runner.temp }}/cargo-xwin
           key: ${{ steps.xwin-cache.outputs.cache-primary-key }}
 
       - name: Install LLVM tools for Windows cross-compilation
@@ -96,6 +97,7 @@ jobs:
         id: update
         env:
           GH_TOKEN: ${{ github.token }}
+          XWIN_CACHE_DIR: ${{ runner.temp }}/cargo-xwin
         run: ./sync/update.sh
 
       - name: Upload the main-branch binaries
