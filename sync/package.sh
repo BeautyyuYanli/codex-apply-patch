@@ -47,26 +47,46 @@ cargo about generate --locked --fail \
 
 chmod 0644 "$common/SOURCE" "$common/THIRD_PARTY_LICENSES.html"
 
-for target in "${targets[@]}"; do
-  binary_name="apply_patch"
+package_target() {
+  local target="$1"
+  local target_root="$repo_root/target/package/$target"
+  local binary_name="apply_patch"
+  local stage
+  local bundle
+  local archive_stem
+  local archive
+  local archive_name
+  local digest
+  local -a build_args=(
+    --locked
+    --release
+    --target "$target"
+    --bin apply_patch
+  )
+
+  if (( ${#targets[@]} > 1 )); then
+    build_args+=(--jobs 2)
+  fi
+
   case "$target" in
     "$host")
-      cargo build --locked --release --target "$target" --bin apply_patch
+      CARGO_TARGET_DIR="$target_root" cargo build "${build_args[@]}"
       ;;
     aarch64-unknown-linux-gnu)
       if ! cross --version >/dev/null 2>&1; then
         echo "cross is required to build $target" >&2
         exit 1
       fi
-      CROSS_CONFIG=sync/cross/Cross.toml \
-        cross build --locked --release --target "$target" --bin apply_patch
+      CARGO_TARGET_DIR="$target_root" \
+        CROSS_CONFIG=sync/cross/Cross.toml \
+        cross build "${build_args[@]}"
       ;;
     x86_64-pc-windows-msvc)
       if ! cargo xwin --version >/dev/null 2>&1; then
         echo "cargo-xwin is required to build $target" >&2
         exit 1
       fi
-      cargo xwin build --locked --release --target "$target" --bin apply_patch
+      CARGO_TARGET_DIR="$target_root" cargo xwin build "${build_args[@]}"
       binary_name="apply_patch.exe"
       ;;
     *)
@@ -78,7 +98,8 @@ for target in "${targets[@]}"; do
   stage="$stage_root/$target"
   bundle="$stage/apply-patch"
   mkdir -p "$bundle"
-  install -m 0755 "target/$target/release/$binary_name" "$bundle/$binary_name"
+  install -m 0755 "$target_root/$target/release/$binary_name" \
+    "$bundle/$binary_name"
   install -m 0644 "$common/LICENSE" "$common/NOTICE" "$common/SKILL.md" \
     "$common/SOURCE" "$common/THIRD_PARTY_LICENSES.html" "$bundle/"
 
@@ -109,4 +130,24 @@ for target in "${targets[@]}"; do
     printf '%s  %s\n' "$digest" "$archive_name" > "${archive}.sha256"
   fi
   printf 'packaged %s\n' "$archive"
+}
+
+build_pids=()
+for target in "${targets[@]}"; do
+  (
+    trap - EXIT
+    package_target "$target"
+  ) &
+  build_pids+=("$!")
 done
+
+build_failed=false
+for build_pid in "${build_pids[@]}"; do
+  if ! wait "$build_pid"; then
+    build_failed=true
+  fi
+done
+if [[ "$build_failed" == "true" ]]; then
+  echo "one or more package builds failed" >&2
+  exit 1
+fi

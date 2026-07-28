@@ -16,6 +16,10 @@ jobs:
   sync:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
+    env:
+      XWIN_ARCH: x86_64
+      XWIN_CACHE_DIR: ${{ runner.temp }}/cargo-xwin
+      XWIN_VERSION: "17"
     outputs:
       built: ${{ steps.update.outputs.built }}
       mode: ${{ steps.update.outputs.mode }}
@@ -39,6 +43,10 @@ jobs:
 
       - name: Cache Rust build data
         uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          key: package-targets-v1
+          workspaces: ". -> target"
 
       - name: Install cargo-about
         uses: taiki-e/install-action@v2
@@ -54,6 +62,24 @@ jobs:
         uses: taiki-e/install-action@v2
         with:
           tool: cargo-xwin@0.23.0
+
+      - name: Restore the Windows SDK cache
+        id: xwin-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ env.XWIN_CACHE_DIR }}
+          key: xwin-${{ runner.os }}-${{ runner.arch }}-cargo-xwin-0.23.0-v17-x86_64-v1
+
+      - name: Prepare the Windows SDK
+        if: steps.xwin-cache.outputs.cache-hit != 'true'
+        run: cargo xwin cache xwin
+
+      - name: Save the Windows SDK cache
+        if: steps.xwin-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ env.XWIN_CACHE_DIR }}
+          key: ${{ steps.xwin-cache.outputs.cache-primary-key }}
 
       - name: Install LLVM tools for Windows cross-compilation
         run: |
@@ -98,6 +124,10 @@ jobs:
 
       - name: Cache Rust build data
         uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          key: package-targets-v1
+          workspaces: ". -> target"
 
       - name: Install cargo-about
         uses: taiki-e/install-action@v2
