@@ -698,8 +698,8 @@ dependencies = [
 
 [[package]]
 name = "codex-api"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "async-channel",
  "base64",
@@ -729,7 +729,7 @@ dependencies = [
 
 [[package]]
 name = "codex-apply-patch"
-version = "0.153.0-alpha.2"
+version = "0.152.0"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -749,8 +749,8 @@ dependencies = [
 
 [[package]]
 name = "codex-async-utils"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "tokio",
  "tokio-util",
@@ -758,8 +758,8 @@ dependencies = [
 
 [[package]]
 name = "codex-client"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-http-client",
  "eventsource-stream",
@@ -772,8 +772,8 @@ dependencies = [
 
 [[package]]
 name = "codex-config"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "base64",
@@ -818,8 +818,8 @@ dependencies = [
 
 [[package]]
 name = "codex-exec-server"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "arc-swap",
  "axum",
@@ -863,8 +863,8 @@ dependencies = [
 
 [[package]]
 name = "codex-exec-server-protocol"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "base64",
  "codex-file-system",
@@ -878,8 +878,8 @@ dependencies = [
 
 [[package]]
 name = "codex-execpolicy"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "clap",
@@ -896,8 +896,8 @@ dependencies = [
 
 [[package]]
 name = "codex-extension-items"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-utils-absolute-path",
  "schemars 0.8.22",
@@ -908,8 +908,8 @@ dependencies = [
 
 [[package]]
 name = "codex-features"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-otel",
  "codex-protocol",
@@ -921,8 +921,8 @@ dependencies = [
 
 [[package]]
 name = "codex-file-system"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "bytes",
  "codex-protocol",
@@ -934,8 +934,8 @@ dependencies = [
 
 [[package]]
 name = "codex-git-utils"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "chrono",
@@ -960,8 +960,8 @@ dependencies = [
 
 [[package]]
 name = "codex-http-client"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "bytes",
  "codex-utils-rustls-provider",
@@ -987,8 +987,8 @@ dependencies = [
 
 [[package]]
 name = "codex-model-provider-info"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-api",
  "codex-protocol",
@@ -1000,8 +1000,8 @@ dependencies = [
 
 [[package]]
 name = "codex-network-proxy"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "base64",
@@ -1036,8 +1036,8 @@ dependencies = [
 
 [[package]]
 name = "codex-otel"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "chrono",
  "codex-api",
@@ -1067,8 +1067,8 @@ dependencies = [
 
 [[package]]
 name = "codex-protocol"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "chardetng",
  "chrono",
@@ -1109,8 +1109,8 @@ dependencies = [
 
 [[package]]
 name = "codex-sandboxing"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "codex-network-proxy",
@@ -1132,8 +1132,8 @@ dependencies = [
 
 [[package]]
 name = "codex-shell-command"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "base64",
  "codex-protocol",
@@ -1153,8 +1153,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-absolute-path"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "dirs",
  "dunce",
@@ -1165,8 +1165,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-cache"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "lru",
  "sha1",
@@ -1175,8 +1175,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-cargo-bin"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "assert_cmd",
  "runfiles",
@@ -1185,8 +1185,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-home-dir"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-utils-absolute-path",
  "dirs",
@@ -1194,8 +1194,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-image"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "base64",
  "codex-utils-cache",
@@ -1207,8 +1207,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-path"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-utils-absolute-path",
  "dunce",
@@ -1217,8 +1217,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-path-uri"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "base64",
  "codex-utils-absolute-path",
@@ -1232,8 +1232,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-pty"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "filedescriptor",
@@ -1248,8 +1248,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-redacted-string"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "schemars 0.8.22",
  "serde",
@@ -1257,16 +1257,16 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-rustls-provider"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "rustls",
 ]
 
 [[package]]
 name = "codex-utils-string"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "regex-lite",
  "serde",
@@ -1275,8 +1275,8 @@ dependencies = [
 
 [[package]]
 name = "codex-websocket-client"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "codex-http-client",
  "futures",
@@ -1289,8 +1289,8 @@ dependencies = [
 
 [[package]]
 name = "codex-windows-sandbox"
-version = "0.153.0-alpha.2"
-source = "git+https://github.com/openai/codex.git?rev=73919571da608749b867134722fe3b42c1c6097f#73919571da608749b867134722fe3b42c1c6097f"
+version = "0.152.0"
+source = "git+https://github.com/openai/codex.git?rev=316795b3cf2a45e90d121d9f46499d4658b2645c#316795b3cf2a45e90d121d9f46499d4658b2645c"
 dependencies = [
  "anyhow",
  "base64",
