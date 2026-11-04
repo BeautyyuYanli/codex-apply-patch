@@ -39,6 +39,7 @@ async fn no_follow_rejects_leaf_and_ancestor_links_for_every_patch_operation() -
                 &patch,
                 ApplyPatchOptions {
                     follow_symlinks: false,
+                    ..Default::default()
                 },
                 &PathUri::from_host_native_path(&work)?,
                 &mut Vec::new(),
@@ -87,6 +88,7 @@ async fn no_follow_rechecks_paths_after_verification() -> anyhow::Result<()> {
         &action.patch,
         ApplyPatchOptions {
             follow_symlinks: false,
+            ..Default::default()
         },
         &cwd,
         &mut Vec::new(),
@@ -117,6 +119,7 @@ async fn no_follow_applies_regular_files_and_default_still_follows_links() -> an
         patch,
         ApplyPatchOptions {
             follow_symlinks: false,
+            ..Default::default()
         },
         &cwd,
         &mut Vec::new(),
