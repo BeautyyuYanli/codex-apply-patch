@@ -337,9 +337,9 @@ checksum = "1505bd5d3d116872e7271a6d4e16d81d0c8570876c8de68093a09ac269d8aac0"
 
 [[package]]
 name = "autocfg"
-version = "1.5.1"
+version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
+checksum = "c08606f8c3cbf4ce6ec8e28fb0014a2c086708fe954eaa885384a6165172e7e8"
 
 [[package]]
 name = "aws-lc-rs"
@@ -752,8 +752,8 @@ dependencies = [
 
 [[package]]
 name = "codex-api"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "async-channel",
  "base64",
@@ -783,7 +783,7 @@ dependencies = [
 
 [[package]]
 name = "codex-apply-patch"
-version = "0.164.0-alpha.9"
+version = "0.163.0-alpha.11.2"
 dependencies = [
  "anyhow",
  "assert_cmd",
@@ -803,8 +803,8 @@ dependencies = [
 
 [[package]]
 name = "codex-async-utils"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "rand 0.9.3",
  "tokio",
@@ -813,8 +813,8 @@ dependencies = [
 
 [[package]]
 name = "codex-build-info"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-install-context",
  "semver",
@@ -824,8 +824,8 @@ dependencies = [
 
 [[package]]
 name = "codex-client"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-http-client",
  "eventsource-stream",
@@ -839,8 +839,8 @@ dependencies = [
 
 [[package]]
 name = "codex-config"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "base64",
@@ -874,7 +874,6 @@ dependencies = [
  "sha2 0.10.9",
  "thiserror 2.0.18",
  "tokio",
- "tokio-util",
  "toml",
  "toml_edit 0.24.0+spec-1.1.0",
  "tonic",
@@ -888,8 +887,8 @@ dependencies = [
 
 [[package]]
 name = "codex-core-plugin-common"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-utils-absolute-path",
  "semver",
@@ -900,8 +899,8 @@ dependencies = [
 
 [[package]]
 name = "codex-exec-server"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "arc-swap",
  "axum",
@@ -958,8 +957,8 @@ dependencies = [
 
 [[package]]
 name = "codex-exec-server-protocol"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "base64",
  "codex-file-system",
@@ -976,8 +975,8 @@ dependencies = [
 
 [[package]]
 name = "codex-execpolicy"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "clap",
@@ -994,8 +993,8 @@ dependencies = [
 
 [[package]]
 name = "codex-extension-items"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-utils-absolute-path",
  "schemars 0.8.22",
@@ -1006,8 +1005,8 @@ dependencies = [
 
 [[package]]
 name = "codex-features"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-network-proxy",
  "codex-protocol",
@@ -1020,22 +1019,21 @@ dependencies = [
 
 [[package]]
 name = "codex-file-system"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "bytes",
  "codex-protocol",
  "codex-utils-absolute-path",
  "codex-utils-path-uri",
  "futures",
- "rustix",
  "serde",
 ]
 
 [[package]]
 name = "codex-file-watcher"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "notify",
  "tokio",
@@ -1044,8 +1042,8 @@ dependencies = [
 
 [[package]]
 name = "codex-git-utils"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "chrono",
@@ -1071,8 +1069,8 @@ dependencies = [
 
 [[package]]
 name = "codex-http-client"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "bytes",
  "codex-utils-rustls-provider",
@@ -1102,8 +1100,8 @@ dependencies = [
 
 [[package]]
 name = "codex-install-context"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-utils-absolute-path",
  "codex-utils-home-dir",
@@ -1114,8 +1112,8 @@ dependencies = [
 
 [[package]]
 name = "codex-linux-sandbox"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "clap",
  "codex-install-context",
@@ -1138,8 +1136,8 @@ dependencies = [
 
 [[package]]
 name = "codex-model-provider-info"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-client",
  "codex-protocol",
@@ -1152,8 +1150,8 @@ dependencies = [
 
 [[package]]
 name = "codex-mxc-sandbox"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "codex-network-proxy",
@@ -1172,8 +1170,8 @@ dependencies = [
 
 [[package]]
 name = "codex-network-proxy"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "base64",
@@ -1219,8 +1217,8 @@ dependencies = [
 
 [[package]]
 name = "codex-otel"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "bytes",
  "chrono",
@@ -1254,16 +1252,16 @@ dependencies = [
 
 [[package]]
 name = "codex-process-hardening"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "libc",
 ]
 
 [[package]]
 name = "codex-protocol"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "chardetng",
  "chrono",
@@ -1286,7 +1284,6 @@ dependencies = [
  "icu_locale_core",
  "icu_provider",
  "landlock",
- "libc",
  "quick-xml",
  "schemars 0.8.22",
  "seccompiler",
@@ -1306,8 +1303,8 @@ dependencies = [
 
 [[package]]
 name = "codex-sandboxing"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "codex-mxc-sandbox",
@@ -1332,8 +1329,8 @@ dependencies = [
 
 [[package]]
 name = "codex-shell-command"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "base64",
  "codex-protocol",
@@ -1353,8 +1350,8 @@ dependencies = [
 
 [[package]]
 name = "codex-skills"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-protocol",
  "codex-shell-command",
@@ -1370,8 +1367,8 @@ dependencies = [
 
 [[package]]
 name = "codex-uds"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "async-io",
  "libc",
@@ -1383,8 +1380,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-absolute-path"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "dirs",
  "dunce",
@@ -1395,8 +1392,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-cache"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "lru",
  "sha1",
@@ -1405,8 +1402,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-cargo-bin"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "assert_cmd",
  "runfiles",
@@ -1415,8 +1412,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-home-dir"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-utils-absolute-path",
  "dirs",
@@ -1424,8 +1421,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-image"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "base64",
  "codex-utils-cache",
@@ -1438,8 +1435,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-path"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-utils-absolute-path",
  "dunce",
@@ -1449,8 +1446,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-path-uri"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "base64",
  "codex-utils-absolute-path",
@@ -1464,13 +1461,13 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-process"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 
 [[package]]
 name = "codex-utils-pty"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "filedescriptor",
@@ -1485,8 +1482,8 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-redacted-string"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "schemars 0.8.22",
  "serde",
@@ -1494,21 +1491,21 @@ dependencies = [
 
 [[package]]
 name = "codex-utils-rustls-provider"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "rustls",
 ]
 
 [[package]]
 name = "codex-utils-stream-parser"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 
 [[package]]
 name = "codex-utils-string"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "regex-lite",
  "serde",
@@ -1517,8 +1514,8 @@ dependencies = [
 
 [[package]]
 name = "codex-websocket-auth"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "clap",
@@ -1533,8 +1530,8 @@ dependencies = [
 
 [[package]]
 name = "codex-websocket-client"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "codex-http-client",
  "futures",
@@ -1547,8 +1544,8 @@ dependencies = [
 
 [[package]]
 name = "codex-windows-sandbox"
-version = "0.164.0-alpha.9"
-source = "git+https://github.com/openai/codex.git?rev=bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a#bcee56bcdb74cbf08fc6dd47ef0079fded4bba9a"
+version = "0.163.0-alpha.11.2"
+source = "git+https://github.com/openai/codex.git?rev=51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4#51f97c6bca5500edbb986f6d9fe64fa2e63cbdd4"
 dependencies = [
  "anyhow",
  "base64",
@@ -1943,46 +1940,6 @@ dependencies = [
  "schemafy",
  "serde",
  "serde_json",
-]
-
-[[package]]
-name = "defmt"
-version = "0.3.100"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f0963443817029b2024136fc4dd07a5107eb8f977eaf18fcd1fdeb11306b64ad"
-dependencies = [
- "defmt 1.1.1",
-]
-
-[[package]]
-name = "defmt"
-version = "1.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e2953bfe4f93bbd20cc71198842756f77d161884c99ebbabc41d80231ded88d1"
-dependencies = [
- "bitflags 1.3.2",
- "defmt-macros",
-]
-
-[[package]]
-name = "defmt-macros"
-version = "1.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bad9c72e7ca2137e0dc3813245a0d282fd6daad32fd800af018306a9169b5fe8"
-dependencies = [
- "defmt-parser",
- "proc-macro2",
- "quote",
- "syn 2.0.117",
-]
-
-[[package]]
-name = "defmt-parser"
-version = "1.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10d60334b3b2e7c9d91ef8150abfb6fa4c1c39ebbcf4a81c2e346aad939fee3e"
-dependencies = [
- "thiserror 2.0.18",
 ]
 
 [[package]]
@@ -2414,23 +2371,21 @@ dependencies = [
 
 [[package]]
 name = "faster-hex"
-version = "0.10.1"
+version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04839bdf9d8c10f66806fad16b852fc72aab80873aebc3cb69d85b4fa41543ed"
+checksum = "7223ae2d2f179b803433d9c830478527e92b8117eab39460edae7f1614d9fb73"
 dependencies = [
- "autocfg",
- "defmt 0.3.100",
  "heapless 0.8.0",
  "serde",
 ]
 
 [[package]]
 name = "fastrand"
-version = "2.5.0"
+version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "da7c62ceae207dd37ea5b845da6a0696c799f85e97da1ab5b7910be3c1c80223"
+checksum = "37909eebbb50d72f9059c3b6d82c0463f2ff062c9e95845c43a6c9c0355411be"
 dependencies = [
- "getrandom 0.4.2",
+ "getrandom 0.2.17",
 ]
 
 [[package]]
@@ -2468,6 +2423,17 @@ dependencies = [
  "libc",
  "thiserror 1.0.69",
  "winapi",
+]
+
+[[package]]
+name = "filetime"
+version = "0.2.27"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f98844151eee8917efc50bd9e8318cb963ae8b297431495d3f758616ea5c57db"
+dependencies = [
+ "cfg-if",
+ "libc",
+ "libredox",
 ]
 
 [[package]]
@@ -2791,103 +2757,155 @@ dependencies = [
 
 [[package]]
 name = "gix"
-version = "0.89.0"
+version = "0.81.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2156d2e07fc3afa7632a82bf3cb0db91f995645a2852f642105c9ac9b52e1cb2"
+checksum = "0473c64d9ccbcfb9953a133b47c8b9a335b87ac6c52b983ee4b03d49000b0f3f"
 dependencies = [
  "gix-actor",
+ "gix-archive",
+ "gix-blame",
  "gix-commitgraph",
  "gix-config",
  "gix-date",
  "gix-diff",
+ "gix-dir",
  "gix-discover",
  "gix-error",
+ "gix-features",
+ "gix-filter",
  "gix-fs",
  "gix-glob",
  "gix-hash",
  "gix-hashtable",
+ "gix-index",
  "gix-lock",
- "gix-note",
+ "gix-merge",
+ "gix-negotiate",
  "gix-object",
  "gix-odb",
  "gix-pack",
- "gix-parallel",
  "gix-path",
  "gix-protocol",
- "gix-quote",
  "gix-ref",
  "gix-refspec",
  "gix-revision",
  "gix-revwalk",
  "gix-sec",
  "gix-shallow",
+ "gix-status",
+ "gix-submodule",
  "gix-tempfile",
  "gix-trace",
  "gix-traverse",
  "gix-url",
  "gix-utils",
  "gix-validate",
+ "gix-worktree",
+ "gix-worktree-state",
  "gix-worktree-stream",
- "gix-zlib",
  "nonempty",
  "smallvec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-actor"
-version = "0.44.0"
+version = "0.40.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2127da41042965ed205568a52443465806944f71c8acd73f48ec94b8cd8e798e"
+checksum = "0e5e5b518339d5e6718af108fd064d4e9ba33caf728cf487352873d76411df35"
 dependencies = [
  "bstr",
  "gix-date",
  "gix-error",
+ "winnow 0.7.14",
+]
+
+[[package]]
+name = "gix-archive"
+version = "0.30.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "651c99be11aac9b303483193ae50b45eb6e094da4f5ed797019b03948f51aad6"
+dependencies = [
+ "bstr",
+ "gix-date",
+ "gix-error",
+ "gix-object",
+ "gix-worktree-stream",
 ]
 
 [[package]]
 name = "gix-attributes"
-version = "0.37.0"
+version = "0.31.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0feca0b8919aba9f123b75de54062dd61eb37d2a2130f34be520da6ed8b8ef72"
+checksum = "c233d6eaa098c0ca5ce03236fd7a96e27f1abe72fad74b46003fbd11fe49563c"
 dependencies = [
  "bstr",
- "gix-error",
  "gix-glob",
- "gix-parallel",
  "gix-path",
  "gix-quote",
  "gix-trace",
+ "kstring",
  "smallvec",
+ "thiserror 2.0.18",
  "unicode-bom",
 ]
 
 [[package]]
-name = "gix-chunk"
-version = "0.10.0"
+name = "gix-bitmap"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "626335faf30ed235744642c2309aa370683b8bb2757f1c22a807e274dff60074"
+checksum = "e7add20f40d060db8c9b1314d499bac6ed7480f33eb113ce3e1cf5d6ff85d989"
+dependencies = [
+ "gix-error",
+]
+
+[[package]]
+name = "gix-blame"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c77aaf9f7348f4da3ebfbfbbc35fa0d07155d98377856198dde6f695fd648705"
+dependencies = [
+ "gix-commitgraph",
+ "gix-date",
+ "gix-diff",
+ "gix-error",
+ "gix-hash",
+ "gix-object",
+ "gix-revwalk",
+ "gix-trace",
+ "gix-traverse",
+ "gix-worktree",
+ "smallvec",
+ "thiserror 2.0.18",
+]
+
+[[package]]
+name = "gix-chunk"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1096b6608fbe5d27fb4984e20f992b4e76fb8c613f6acb87d07c5831b53a6959"
 dependencies = [
  "gix-error",
 ]
 
 [[package]]
 name = "gix-command"
-version = "0.12.0"
+version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ac560c05e19455016a4a94b33a77debe59aaed8783da32a73d31c9975947152e"
+checksum = "b849c65a609f50d02f8a2774fe371650b3384a743c79c2a070ce0da49b7fb7da"
 dependencies = [
  "bstr",
- "gix-error",
  "gix-path",
  "gix-quote",
  "gix-trace",
+ "shell-words",
 ]
 
 [[package]]
 name = "gix-commitgraph"
-version = "0.41.0"
+version = "0.35.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dfede9936d4b789867c09722576aea4ceb0e3aacf962eef035ebab0686b41a80"
+checksum = "3196655fd1443f3c58a48c114aa480be3e4e87b393d7292daaa0d543862eb445"
 dependencies = [
  "bstr",
  "gix-chunk",
@@ -2899,97 +2917,145 @@ dependencies = [
 
 [[package]]
 name = "gix-config"
-version = "0.62.0"
+version = "0.54.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "65a9c000fa9a9154f22ffc8f8d74426e9300d759c2029e8701e2ba39d5d464ea"
+checksum = "08939b4c4ed7a663d0e64be9e1e9bdf23a1fb4fcee1febdf449f12229542e50d"
 dependencies = [
  "bstr",
  "gix-config-value",
- "gix-error",
+ "gix-features",
  "gix-glob",
- "gix-parallel",
  "gix-path",
  "gix-ref",
  "gix-sec",
- "gix-trace",
- "gix-utils",
+ "memchr",
  "smallvec",
+ "thiserror 2.0.18",
  "unicode-bom",
+ "winnow 0.7.14",
 ]
 
 [[package]]
 name = "gix-config-value"
-version = "0.21.0"
+version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ab206c2fccfd35e0de7fb1b424997cfd42912062c66dae024e08a06e22d46674"
+checksum = "441a300bc3645a1f45cba495b9175f90f47256ce43f2ee161da0031e3ac77c92"
 dependencies = [
  "bitflags 2.13.1",
  "bstr",
- "gix-error",
  "gix-path",
- "gix-utils",
  "libc",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-date"
-version = "0.18.0"
+version = "0.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f7eeeecc599082f32b5ea6a8c4c734e38be9730e2c09e3fe2851bb4692393e9"
+checksum = "39acf819aa9fee65e4838a2eec5cb2506e47ebb89e02a5ab9918196e491571ea"
 dependencies = [
  "bstr",
  "gix-error",
  "itoa",
  "jiff",
+ "smallvec",
 ]
 
 [[package]]
 name = "gix-diff"
-version = "0.69.0"
+version = "0.61.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa640963fdcbc6b4718e48593c3917f5ae764b59fb5a96313cb5a757246d041d"
+checksum = "88f3b3475e5d3877d7c30c40827cc2441936ce890efc226e5ba4afe3a7ae33f0"
 dependencies = [
  "bstr",
- "gix-error",
+ "gix-command",
+ "gix-filter",
+ "gix-fs",
  "gix-hash",
  "gix-object",
+ "gix-path",
+ "gix-tempfile",
+ "gix-trace",
+ "gix-traverse",
+ "gix-worktree",
+ "imara-diff 0.1.8",
+ "imara-diff 0.2.0",
+ "thiserror 2.0.18",
+]
+
+[[package]]
+name = "gix-dir"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5da4604a360988f0ba8efe6f90093ca5a844f4a7f8e1a3dcda501ec44e600ea9"
+dependencies = [
+ "bstr",
+ "gix-discover",
+ "gix-fs",
+ "gix-ignore",
+ "gix-index",
+ "gix-object",
+ "gix-path",
+ "gix-pathspec",
+ "gix-trace",
+ "gix-utils",
+ "gix-worktree",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-discover"
-version = "0.57.0"
+version = "0.49.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7d0f8fd2c7e4b458eb3081362d49b54bd0131d23ecd49be802085a11f0d3cee"
+checksum = "c65bd3330fe0cb9d40d875bf862fd5e8ad6fa4164ddbc4842fbeb889c3f0b2c6"
 dependencies = [
  "bstr",
  "dunce",
- "gix-error",
  "gix-fs",
  "gix-path",
  "gix-ref",
  "gix-sec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-error"
-version = "0.5.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aef6406003c4117d640329fe2c35386f4e137a628bb28d3f50209db159b48bc4"
+checksum = "2e86d01da904d4a9265def43bd42a18c5e6dc7000a73af512946ba14579c9fbd"
 dependencies = [
  "bstr",
 ]
 
 [[package]]
-name = "gix-filter"
-version = "0.36.0"
+name = "gix-features"
+version = "0.46.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d8d932ee4043f7d77d15ee58d2be2bc95accea5dd1d77fd145de1b7c504551b"
+checksum = "752493cd4b1d5eaaa0138a7493f65c96863fefa990fc021e0e519579e389ab20"
+dependencies = [
+ "bytes",
+ "crc32fast",
+ "gix-path",
+ "gix-trace",
+ "gix-utils",
+ "libc",
+ "once_cell",
+ "prodash",
+ "thiserror 2.0.18",
+ "walkdir",
+ "zlib-rs 0.6.3",
+]
+
+[[package]]
+name = "gix-filter"
+version = "0.28.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d37598282a6566da6fb52667570c7fe0aedcb122ac886724a9e62a2180523e35"
 dependencies = [
  "bstr",
  "encoding_rs",
  "gix-attributes",
  "gix-command",
- "gix-error",
  "gix-hash",
  "gix-object",
  "gix-packetline",
@@ -2998,218 +3064,274 @@ dependencies = [
  "gix-trace",
  "gix-utils",
  "smallvec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-fs"
-version = "0.24.0"
+version = "0.19.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "44a05d043e670c055cd8b53d078562dc0bc1e322bff6b0376b407d37cf72dcc5"
+checksum = "a964b4aec683eb0bacb87533defa80805bb4768056371a47ab38b00a2d377b72"
 dependencies = [
  "bstr",
- "gix-error",
- "gix-parallel",
+ "fastrand",
+ "gix-features",
  "gix-path",
  "gix-utils",
- "libc",
- "walkdir",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-glob"
-version = "0.29.0"
+version = "0.24.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b0d03ab50fa841621031960679caf7fe94940968d9a0736d12a580f2c03e525"
+checksum = "b03e6cd88cc0dc1eafa1fddac0fb719e4e74b6ea58dd016e71125fde4a326bee"
 dependencies = [
  "bitflags 2.13.1",
  "bstr",
- "gix-fs",
+ "gix-features",
  "gix-path",
- "gix-trace",
- "gix-utils",
 ]
 
 [[package]]
 name = "gix-hash"
-version = "0.28.0"
+version = "0.23.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40ca156064e378d8c657084365846cedb8dc498c6ea4500965a64d74f12af2be"
+checksum = "0fb896a02d9ab96fa518475a5f30ad3952010f801a8de5840f633f4a6b985dfb"
 dependencies = [
  "faster-hex",
- "gix-error",
- "gix-utils",
- "sha1dc",
+ "gix-features",
+ "sha1-checked",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-hashtable"
-version = "0.18.0"
+version = "0.13.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "916cb6b2ec42ffaca624e7867bb382a4673015cb4ffcd7330b48085d02e4c615"
+checksum = "2664216fc5e89b51e756a4a3ac676315602ce2dac07acf1da959a22038d69b33"
 dependencies = [
  "gix-hash",
- "hashbrown 0.17.1",
+ "hashbrown 0.16.1",
  "parking_lot",
 ]
 
 [[package]]
-name = "gix-lock"
-version = "26.0.0"
+name = "gix-ignore"
+version = "0.19.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4b2f7f5bd6b9fcd0b0dc58b0e6a708f3a47c3313876571dfe800c926c069aa5c"
+checksum = "09f915dcf6911e3027537166d34e13f0fe101ed12225178d2ae29cd1272cff26"
 dependencies = [
- "gix-error",
+ "bstr",
+ "gix-glob",
+ "gix-path",
+ "gix-trace",
+ "unicode-bom",
+]
+
+[[package]]
+name = "gix-index"
+version = "0.49.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1bae54ab14e4e74d5dda60b82ea7afad7c8eb3be68283d6d5f29bd2e6d47fff7"
+dependencies = [
+ "bitflags 2.13.1",
+ "bstr",
+ "filetime",
+ "fnv",
+ "gix-bitmap",
+ "gix-features",
  "gix-fs",
+ "gix-hash",
+ "gix-lock",
+ "gix-object",
+ "gix-traverse",
+ "gix-utils",
+ "gix-validate",
+ "hashbrown 0.16.1",
+ "itoa",
+ "libc",
+ "memmap2",
+ "rustix",
+ "smallvec",
+ "thiserror 2.0.18",
+]
+
+[[package]]
+name = "gix-lock"
+version = "21.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "054fbd0989700c69dc5aa80bc66944f05df1e15aa7391a9e42aca7366337905f"
+dependencies = [
  "gix-tempfile",
  "gix-utils",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
-name = "gix-macros"
-version = "0.2.0"
+name = "gix-merge"
+version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f11f5429ca73cc3758c9f53af56a9fba100a8701c5b4bc30e29b8b0b15288991"
+checksum = "f4606747466512d22c2dffc019142e1941238f543987ea51353c938cca80c500"
 dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.117",
+ "bstr",
+ "gix-command",
+ "gix-diff",
+ "gix-filter",
+ "gix-fs",
+ "gix-hash",
+ "gix-index",
+ "gix-object",
+ "gix-path",
+ "gix-quote",
+ "gix-revision",
+ "gix-revwalk",
+ "gix-tempfile",
+ "gix-trace",
+ "gix-worktree",
+ "imara-diff 0.1.8",
+ "nonempty",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
-name = "gix-note"
-version = "0.3.0"
+name = "gix-negotiate"
+version = "0.29.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bd364f8bdceaed9e7f3ae40f324b16e39f20e9c7e6a6a058f7c6ec66c3e6205c"
+checksum = "6ea064c7595eea08fdd01c70748af747d9acc40f727b61f4c8a2145a5c5fc28c"
 dependencies = [
- "gix-error",
+ "bitflags 2.13.1",
+ "gix-commitgraph",
+ "gix-date",
  "gix-hash",
  "gix-object",
+ "gix-revwalk",
 ]
 
 [[package]]
 name = "gix-object"
-version = "0.66.0"
+version = "0.58.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f0e38f50177e211642af154f9a7f710b7a3a637e635f9b6adb9d51973b0f9209"
+checksum = "cafb802bb688a7c1e69ef965612ff5ff859f046bfb616377e4a0ba4c01e43d47"
 dependencies = [
  "bstr",
  "gix-actor",
  "gix-date",
- "gix-error",
+ "gix-features",
  "gix-hash",
  "gix-hashtable",
+ "gix-path",
  "gix-utils",
  "gix-validate",
  "itoa",
  "smallvec",
+ "thiserror 2.0.18",
+ "winnow 0.7.14",
 ]
 
 [[package]]
 name = "gix-odb"
-version = "0.86.0"
+version = "0.78.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ca444f33f2140876ed6b5313c2b550b4af699008193c96f3bff5023afa9ef4ea"
+checksum = "24833ae9323b4f7079575fb9f961cf9c414b0afbec428a536ab8e7dd93bc002b"
 dependencies = [
  "arc-swap",
- "crc32fast",
- "gix-error",
+ "gix-features",
  "gix-fs",
  "gix-hash",
  "gix-hashtable",
  "gix-object",
  "gix-pack",
- "gix-parallel",
  "gix-path",
  "gix-quote",
- "gix-trace",
- "gix-utils",
- "gix-zlib",
- "memmap2",
  "parking_lot",
  "tempfile",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-pack"
-version = "0.76.0"
+version = "0.68.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bc5024cc503cd29461a705ae90b9eae772fa8f0e6fafc1c48513877dc374de05"
+checksum = "e3484119cd19859d7d7639413c27e192478fa354d3f4ff5f7e3c041e8040f0f4"
 dependencies = [
  "clru",
- "crc32fast",
  "gix-chunk",
  "gix-error",
+ "gix-features",
  "gix-hash",
  "gix-hashtable",
  "gix-object",
- "gix-parallel",
  "gix-path",
- "gix-trace",
- "gix-utils",
- "gix-zlib",
  "memmap2",
  "smallvec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-packetline"
-version = "0.24.0"
+version = "0.21.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "830e51b227f6a925fe9308858ac91170dd00fa2880f5480fc81e8a4594fe2c35"
+checksum = "be19313dcdb7dff75a3ce2f99be00878458295bcc3b6c7f0005591597573345c"
 dependencies = [
  "bstr",
  "faster-hex",
- "gix-error",
  "gix-trace",
-]
-
-[[package]]
-name = "gix-parallel"
-version = "0.50.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e994cf1eec247ba4be7f9e7c0d58cc73f83eecb5fcb9feb595df5ba3d2078546"
-dependencies = [
- "crossbeam-channel",
- "gix-trace",
- "once_cell",
- "parking_lot",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-path"
-version = "0.14.0"
+version = "0.11.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a6d563d4d0c975ed0df4e853f9ec962a2ba46633b1d324e1a5582541fcae0c6b"
+checksum = "09c31d4373bda7fab9eb01822927b55185a378d6e1bf737e0a54c743ad806658"
 dependencies = [
  "bstr",
- "gix-error",
  "gix-trace",
  "gix-validate",
+ "thiserror 2.0.18",
+]
+
+[[package]]
+name = "gix-pathspec"
+version = "0.16.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f89611f13544ca5ebeb68a502673814ef57200df60c24a61c2ce7b96f612f08b"
+dependencies = [
+ "bitflags 2.13.1",
+ "bstr",
+ "gix-attributes",
+ "gix-config-value",
+ "gix-glob",
+ "gix-path",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-protocol"
-version = "0.67.0"
+version = "0.59.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "832b5dc46a3c0a6f6fa8f8e571c11074add4b545c6789799ae6d6c36ae1a294e"
+checksum = "4f38666350736b5877c79f57ddae02bde07a4ce186d889adc391e831cddcbe76"
 dependencies = [
  "bstr",
  "gix-date",
- "gix-error",
+ "gix-features",
  "gix-hash",
- "gix-macros",
  "gix-ref",
  "gix-shallow",
  "gix-transport",
  "gix-utils",
+ "maybe-async",
  "nonempty",
+ "thiserror 2.0.18",
+ "winnow 0.7.14",
 ]
 
 [[package]]
 name = "gix-quote"
-version = "0.10.0"
+version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7f92bc1b13c09e88388578e8aa1e987ec35f28fca158c13b1baa7ab1a85b124"
+checksum = "68533db71259c8776dd4e770d2b7b98696213ecdc1f5c9e3507119e274e0c578"
 dependencies = [
  "bstr",
  "gix-error",
@@ -3218,43 +3340,48 @@ dependencies = [
 
 [[package]]
 name = "gix-ref"
-version = "0.69.0"
+version = "0.61.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "073bc0928e1f747823b1eaed94918119dacef4c616532bc3d17e5b7457863471"
+checksum = "c2159978abb99b7027c8579d15211e262ef0ef2594d5cecb3334fbcbdfe2997c"
 dependencies = [
  "gix-actor",
- "gix-error",
+ "gix-features",
  "gix-fs",
  "gix-hash",
  "gix-lock",
  "gix-object",
- "gix-parallel",
  "gix-path",
  "gix-tempfile",
  "gix-utils",
  "gix-validate",
  "memmap2",
+ "thiserror 2.0.18",
+ "winnow 0.7.14",
 ]
 
 [[package]]
 name = "gix-refspec"
-version = "0.47.0"
+version = "0.39.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ccc7010dae0df2900aa77cc67f8aca042cd80e35938ccc179010d863b1d42a0c"
+checksum = "dc806ee13f437428f8a1ba4c72ecfaa3f20e14f5f0d4c2bc17d0b33e794aa6ac"
 dependencies = [
  "bstr",
  "gix-error",
+ "gix-glob",
  "gix-hash",
+ "gix-revision",
  "gix-validate",
  "smallvec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-revision"
-version = "0.51.0"
+version = "0.43.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "63210c1943b67fa700806c3c3486fc16a92b3ea871f5cf092340b8eec10a0ca1"
+checksum = "7c08f1ec5d1e6a524f8ba291c41f0ccaef64e48ed0e8cf790b3461cae45f6d3d"
 dependencies = [
+ "bitflags 2.13.1",
  "bstr",
  "gix-commitgraph",
  "gix-date",
@@ -3262,14 +3389,15 @@ dependencies = [
  "gix-hash",
  "gix-object",
  "gix-revwalk",
+ "gix-trace",
  "nonempty",
 ]
 
 [[package]]
 name = "gix-revwalk"
-version = "0.37.0"
+version = "0.29.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "800479fbbf1e7f94f663e07943a91add5499343e7aac611a81e6a0460fd44af6"
+checksum = "0e4b2b87772b21ca449249e86d32febadba5cba32b0fcce804ab9cefc6f2111c"
 dependencies = [
  "gix-commitgraph",
  "gix-date",
@@ -3278,13 +3406,14 @@ dependencies = [
  "gix-hashtable",
  "gix-object",
  "smallvec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-sec"
-version = "0.16.0"
+version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5640f642a1b471616d48230b1def7ca743cb30903441ff84800cafbab3c0fddf"
+checksum = "bf82ae037de9c62850ce67beaa92ec8e3e17785ea307cdde7618edc215603b4f"
 dependencies = [
  "bitflags 2.13.1",
  "gix-path",
@@ -3294,137 +3423,191 @@ dependencies = [
 
 [[package]]
 name = "gix-shallow"
-version = "0.15.0"
+version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94bc0720a3d6b10f18e3ac382a7780bcfc4c6bee94a8b5857b8e4ec94c50d754"
+checksum = "cbf60711c9083b2364b3fac8a352444af76b17201f3682fdebe74fa66d89a772"
 dependencies = [
  "bstr",
- "gix-error",
  "gix-hash",
  "gix-lock",
  "nonempty",
+ "thiserror 2.0.18",
+]
+
+[[package]]
+name = "gix-status"
+version = "0.28.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "23d6c598e3fdbc352fba1c5ba7e709e69402fafbc44d9295edad2e3c4738996b"
+dependencies = [
+ "bstr",
+ "filetime",
+ "gix-diff",
+ "gix-dir",
+ "gix-features",
+ "gix-filter",
+ "gix-fs",
+ "gix-hash",
+ "gix-index",
+ "gix-object",
+ "gix-path",
+ "gix-pathspec",
+ "gix-worktree",
+ "portable-atomic",
+ "thiserror 2.0.18",
+]
+
+[[package]]
+name = "gix-submodule"
+version = "0.28.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0ce5c3929c5e6821f651d35e8420f72fea3cfafe9fc1e928a61e718b462c72a5"
+dependencies = [
+ "bstr",
+ "gix-config",
+ "gix-path",
+ "gix-pathspec",
+ "gix-refspec",
+ "gix-url",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-tempfile"
-version = "26.0.0"
+version = "21.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9275c8ae0646d840ae0156d3f90d39b7beea6e31a398afb9ee72feb293a269c"
+checksum = "d22227f6b203f511ff451c33c89899e87e4f571fc596b06f68e6e613a6508528"
 dependencies = [
+ "dashmap",
  "gix-fs",
  "libc",
  "parking_lot",
  "tempfile",
- "windows-sys 0.61.2",
 ]
 
 [[package]]
 name = "gix-trace"
-version = "0.3.0"
+version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "133f2de116104d637541831b6acb157898556d5eeec363ab2eb1c583adc6bb56"
+checksum = "f69a13643b8437d4ca6845e08143e847a36ca82903eed13303475d0ae8b162e0"
 
 [[package]]
 name = "gix-transport"
-version = "0.61.0"
+version = "0.55.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2e43d6b0097ea9f2f266d5d6c43b8f615ed3da7c686ec8771cd17c1cb33cb0de"
+checksum = "a521e39c6235ce63ed6c001e2dd79818c830b82c3b7b59247ee7b229c39ec9bb"
 dependencies = [
  "bstr",
  "gix-command",
- "gix-error",
+ "gix-features",
  "gix-packetline",
- "gix-path",
  "gix-quote",
  "gix-sec",
- "gix-trace",
  "gix-url",
- "gix-utils",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-traverse"
-version = "0.63.0"
+version = "0.55.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a668a6e7f7688e5a43eaf161f1471ffc559de1a5fd8471e861c64d59d1699e1e"
+checksum = "963dc2afcdb611092aa587c3f9365e749ac0a0892ff27662dbc75f26c953fbec"
 dependencies = [
  "bitflags 2.13.1",
  "gix-commitgraph",
  "gix-date",
- "gix-error",
  "gix-hash",
  "gix-hashtable",
  "gix-object",
  "gix-revwalk",
  "smallvec",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-url"
-version = "0.40.0"
+version = "0.35.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "04317dea7a5dd5253bbcab060c230f3de6a57d17cc9600c6cd7030bf4795b414"
+checksum = "d28e8af3d42581190da884f013caf254d2fd4d6ab102408f08d21bfa11de6c8d"
 dependencies = [
  "bstr",
- "gix-error",
  "gix-path",
- "gix-utils",
  "percent-encoding",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-utils"
-version = "0.5.0"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "830639b49e83df93de7803ff0031a6c82d2a395dec7c4a068e37e97b0ce61bca"
+checksum = "befcdbdfb1238d2854591f760a48711bed85e72d80a10e8f2f93f656746ef7c5"
 dependencies = [
  "bstr",
- "bytes",
  "fastrand",
- "getrandom 0.4.2",
- "gix-error",
- "prodash",
  "unicode-normalization",
 ]
 
 [[package]]
 name = "gix-validate"
-version = "0.13.0"
+version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cbcd59cc52742468bc5c8a0e7123390d154f45e6cbd37461b0dcecdc681f2179"
+checksum = "0ec1eff98d91941f47766367cba1be746bab662bad761d9891ae6f7882f7840b"
 dependencies = [
  "bstr",
- "gix-error",
+]
+
+[[package]]
+name = "gix-worktree"
+version = "0.50.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6bd5830cbc43c9c00918b826467d2afad685b195cb82329cde2b2d116d2c578"
+dependencies = [
+ "bstr",
+ "gix-attributes",
+ "gix-fs",
+ "gix-glob",
+ "gix-hash",
+ "gix-ignore",
+ "gix-index",
+ "gix-object",
+ "gix-path",
+ "gix-validate",
+]
+
+[[package]]
+name = "gix-worktree-state"
+version = "0.28.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "644a1681f96e1be43c2a8384337d9d220e7624f50db54beda70997052aebf707"
+dependencies = [
+ "bstr",
+ "gix-features",
+ "gix-filter",
+ "gix-fs",
+ "gix-index",
+ "gix-object",
+ "gix-path",
+ "gix-worktree",
+ "io-close",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
 name = "gix-worktree-stream"
-version = "0.38.0"
+version = "0.30.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "28d2789610e8179d4e0e8e51170a52a66483c103a8ad3c7db4d075b571856cb6"
+checksum = "24e3fb70a1f650a5cec7d5b8d10d6d6fe86daf3cf15bde08ba0c70988a2932c3"
 dependencies = [
  "gix-attributes",
  "gix-error",
+ "gix-features",
  "gix-filter",
  "gix-fs",
  "gix-hash",
  "gix-object",
- "gix-parallel",
  "gix-path",
- "gix-trace",
  "gix-traverse",
- "gix-utils",
  "parking_lot",
-]
-
-[[package]]
-name = "gix-zlib"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c2edb206bf06f3c801f4f6789c696396171558ab9b4c7f1fe3ba4d39b00b0f4"
-dependencies = [
- "gix-error",
- "zlib-rs 0.6.3",
 ]
 
 [[package]]
@@ -4044,6 +4227,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "imara-diff"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "17d34b7d42178945f775e84bc4c36dde7c1c6cdfea656d3354d009056f2bb3d2"
+dependencies = [
+ "hashbrown 0.15.5",
+]
+
+[[package]]
+name = "imara-diff"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2f01d462f766df78ab820dd06f5eb700233c51f0f4c2e846520eaf4ba6aa5c5c"
+dependencies = [
+ "hashbrown 0.15.5",
+ "memchr",
+]
+
+[[package]]
 name = "include_dir"
 version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4130,6 +4332,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "io-close"
+version = "0.3.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9cadcf447f06744f8ce713d2d6239bb5bde2c357a452397a9ed90c625da390bc"
+dependencies = [
+ "libc",
+ "winapi",
+]
+
+[[package]]
 name = "ipconfig"
 version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4180,38 +4392,25 @@ checksum = "92ecc6618181def0457392ccd0ee51198e065e016d1d527a7ac1b6dc7c1f09d2"
 
 [[package]]
 name = "jiff"
-version = "0.2.38"
+version = "0.2.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2b005715dcbeb0089a3c0dab99f2ff1cc3b2525323552703d648585d342a383"
+checksum = "1a3546dc96b6d42c5f24902af9e2538e82e39ad350b0c766eb3fbf2d8f3d8359"
 dependencies = [
- "defmt 1.1.1",
- "jiff-core",
  "jiff-static",
  "jiff-tzdb-platform",
  "log",
  "portable-atomic",
  "portable-atomic-util",
  "serde_core",
- "windows-link",
-]
-
-[[package]]
-name = "jiff-core"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e52fe76043ccecc9005d2305ebaadf7d7fc0cc89ca6baa10a94d6bc68c7128c"
-dependencies = [
- "defmt 1.1.1",
- "log",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
 name = "jiff-static"
-version = "0.2.38"
+version = "0.2.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2cc9817253cf7c7ee4684451bd327e88d6f3658014e54a29198625590650695c"
+checksum = "2a8c8b344124222efd714b73bb41f8b5120b27a7cc1c75593a6ff768d9d05aa4"
 dependencies = [
- "jiff-core",
  "proc-macro2",
  "quote",
  "syn 2.0.117",
@@ -4356,6 +4555,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "kstring"
+version = "2.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "558bf9508a558512042d3095138b1f7b8fe90c5467d94f9f1da28b3731c5dbd1"
+dependencies = [
+ "static_assertions",
+]
+
+[[package]]
 name = "landlock"
 version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4392,6 +4600,7 @@ checksum = "3d0b95e02c851351f877147b7deea7b1afb1df71b63aa5f8270716e0c5720616"
 dependencies = [
  "bitflags 2.13.1",
  "libc",
+ "redox_syscall 0.7.0",
 ]
 
 [[package]]
@@ -4555,6 +4764,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b3eede3bdf92f3b4f9dc04072a9ce5ab557d5ec9038773bf9ffcd5588b3cc05b"
 
 [[package]]
+name = "maybe-async"
+version = "0.2.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5cf92c10c7e361d6b99666ec1c6f9805b0bea2c3bd8c78dc6fe98ac5bd78db11"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.117",
+]
+
+[[package]]
 name = "md5"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4568,9 +4788,9 @@ checksum = "6b947ae49db0d222b1dbc6b113ce7248a3fc3a6ca21b696717bfc000ba4484d8"
 
 [[package]]
 name = "memmap2"
-version = "0.9.11"
+version = "0.9.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1219ed1b7f229ee7104d281dd01d6802fe28bb6e95d292942c4daacdeb798c0"
+checksum = "714098028fe011992e1c3962653c96b2d578c4b4bce9036e15ff220319b1e0e3"
 dependencies = [
  "libc",
 ]
@@ -5302,7 +5522,7 @@ checksum = "2621685985a2ebf1c516881c026032ac7deafcda1a2c9b7850dc81e3dfcb64c1"
 dependencies = [
  "cfg-if",
  "libc",
- "redox_syscall",
+ "redox_syscall 0.5.18",
  "smallvec",
  "windows-link",
 ]
@@ -5549,9 +5769,9 @@ dependencies = [
 
 [[package]]
 name = "prodash"
-version = "31.0.1"
+version = "31.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cf52d87428247c5aa3760ac8e7d8b13ec7b3579b955a8c3f311668b6860acba5"
+checksum = "962200e2d7d551451297d9fdce85138374019ada198e30ea9ede38034e27604c"
 dependencies = [
  "parking_lot",
 ]
@@ -6200,6 +6420,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "redox_syscall"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49f3fe0889e69e2ae9e41f4d6c4c0181701d00e4697b356fb1f74173a5e0ee27"
+dependencies = [
+ "bitflags 2.13.1",
+]
+
+[[package]]
 name = "redox_users"
 version = "0.4.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6391,9 +6620,9 @@ dependencies = [
 
 [[package]]
 name = "rustls"
-version = "0.23.46"
+version = "0.23.45"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "48e13bd8c0e9365c43cfa5c9e8f9ad49d3c8444926c9aac819e0e4dc503c8fdf"
+checksum = "0d41d731c7d2f962d1ccc364cec258de3c0e93b38c2fb3ba97ac74513048d634"
 dependencies = [
  "aws-lc-rs",
  "log",
@@ -6869,10 +7098,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "sha1dc"
-version = "0.1.5"
+name = "sha1-checked"
+version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c5b0ebf6537e3e8db8bb7d21ecb6d7399738c953c757945c6b95e46c4e95df7b"
+checksum = "89f599ac0c323ebb1c6082821a54962b839832b03984598375bff3975b804423"
+dependencies = [
+ "digest 0.10.7",
+ "sha1",
+]
 
 [[package]]
 name = "sha2"
